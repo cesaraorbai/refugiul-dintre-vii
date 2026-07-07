@@ -442,12 +442,19 @@
             transform: translateX(5px);
         }
 
-        /* Secțiunea DTAC Pensiune */
-        #pensiune {
-            background-color: var(--bg-section); /* Fundal alternat pentru fluență vizuală */
+        /* Secțiunea DTAC Pensiune & Reglementări */
+        #pensiune, #reglementari {
             max-width: 100%;
             padding-left: 0;
             padding-right: 0;
+        }
+
+        #pensiune {
+            background-color: var(--bg-section); /* Fundal alternat pentru fluență vizuală */
+        }
+
+        #reglementari {
+            background-color: var(--bg-light); /* Menținem alternarea corectă a fundalurilor */
         }
 
         .cabin-container {
@@ -471,6 +478,16 @@
             transition: var(--transition-smooth);
             display: flex;
             flex-direction: column;
+        }
+
+        /* Fundal special alb-gălbui foarte deschis pentru cardurile pe secțiune gri, și invers */
+        #pensiune .cabin-card {
+            background: var(--text-light);
+        }
+
+        #reglementari .cabin-card {
+            background: var(--text-light);
+            border: 1px solid rgba(136, 151, 189, 0.15);
         }
 
         .cabin-card:hover {
@@ -910,6 +927,7 @@
                 <li><a href="#atmosfera">Atmosferă</a></li>
                 <li><a href="#experiente">Experiențe</a></li>
                 <li><a href="#pensiune">Pensiune</a></li>
+                <li><a href="#reglementari">Reglementări</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <li class="mobile-only">
                     <a href="#contact" class="btn-rezerva-mobile">REZERVĂ ACUM</a>
@@ -934,7 +952,6 @@
     <section id="hero">
         <h1>Refugiul dintre Vii</h1>
         <p>O reconectare cu natura</p>
-        <a href="#contact" class="btn-rezerva" style="padding: 1rem 2.5rem; font-size: 0.95rem; background-color: var(--accent-color); color: white; margin-right: 0;">PLANIFICĂ EVADAREA</a>
     </section>
 
     <!-- Secțiunea Concept -->
@@ -1110,6 +1127,72 @@
         </div>
     </section>
 
+    <!-- Secțiunea Reglementări Urbanistice -->
+    <section id="reglementari">
+        <div class="cabin-container">
+            <h2 class="section-title" style="margin-bottom: 4rem;">Reglementări Urbanistice</h2>
+
+            <div class="cabin-grid">
+                <!-- Imagine 1: Reglementari PUG -->
+                <div class="cabin-card">
+                    <div class="cabin-img-wrapper" onclick="openLightbox('reglementariPug.png', 'Reglementări PUG')">
+                        <img src="reglementariPug.png" alt="Plan Urbanistic General - Reglementări PUG">
+                        <div class="cabin-img-hover-overlay">
+                            <span class="hover-zoom-icon">
+                                <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="cabin-info">
+                        <h4>Reglementări PUG</h4>
+                        <button class="zoom-btn" onclick="openLightbox('reglementariPug.png', 'Reglementări PUG')">
+                            <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2.5" fill="none"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                            Mărește
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Imagine 2: Reglementari PUZ -->
+                <div class="cabin-card">
+                    <div class="cabin-img-wrapper" onclick="openLightbox('reglementariPuz.png', 'Reglementări PUZ')">
+                        <img src="reglementariPuz.png" alt="Plan Urbanistic Zonal - Reglementări PUZ">
+                        <div class="cabin-img-hover-overlay">
+                            <span class="hover-zoom-icon">
+                                <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="cabin-info">
+                        <h4>Reglementări PUZ</h4>
+                        <button class="zoom-btn" onclick="openLightbox('reglementariPuz.png', 'Reglementări PUZ')">
+                            <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2.5" fill="none"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                            Mărește
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Imagine 3: Reglementari PUD -->
+                <div class="cabin-card">
+                    <div class="cabin-img-wrapper" onclick="openLightbox('reglementariPud.png', 'Reglementări PUD')">
+                        <img src="reglementariPud.png" alt="Plan Urbanistic de Detaliu - Reglementări PUD">
+                        <div class="cabin-img-hover-overlay">
+                            <span class="hover-zoom-icon">
+                                <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="cabin-info">
+                        <h4>Reglementări PUD</h4>
+                        <button class="zoom-btn" onclick="openLightbox('reglementariPud.png', 'Reglementări PUD')">
+                            <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2.5" fill="none"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                            Mărește
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Secțiunea Contact -->
     <section id="contact">
         <div class="contact-container">
@@ -1117,7 +1200,7 @@
             <p class="section-subtitle">Suntem bucuroși să te ghidăm</p>
 
             <p style="font-size: 1.1rem; color: rgba(255, 255, 255, 0.85); margin-bottom: 2.5rem; font-weight: 300; line-height: 1.7;">
-                Porțile refugiului nostru sunt mereu deschise pentru iubitorii de frumos, tihnă și poveste. Rezervă-ți locul în avans pentru a te asigura că vei experimenta magia pe deplin.
+                Porțile refugiului nostru sunt mereu open pentru iubitorii de frumos, tihnă și poveste. Rezervă-ți locul în avans pentru a te asigura că vei experimenta magia pe deplin.
             </p>
 
             <div class="contact-details">
@@ -1171,7 +1254,7 @@
             });
         });
 
-        // 2. Funcții pentru Lightbox (Mărire Imagini Cabană)
+        // 2. Funcții pentru Lightbox (Mărire Imagini Cabană & Reglementări)
         function openLightbox(src, altText) {
             const lightbox = document.getElementById('lightbox');
             const lightboxImg = document.getElementById('lightbox-img');
