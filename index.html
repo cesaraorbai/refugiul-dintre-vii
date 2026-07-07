@@ -1,0 +1,330 @@
+```html
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Refugiul dintre Vii | O reconectare cu natura</title>
+    <style>
+        /* CSS Reset & Variables */
+        :root {
+            --primary-color: #5d6d7e; /* Albastru-gri inspirat din fundalul broșurii */
+            --secondary-color: #8c9276; /* Verde natural */
+            --text-dark: #333333;
+            --text-light: #ffffff;
+            --bg-light: #f9f9f9;
+            --bg-section: #eaeded;
+            --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        header {
+            background-color: var(--text-light);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        .btn-rezerva {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .btn-rezerva:hover {
+            background-color: #4a5866;
+        }
+
+        /* Hero Section */
+        #hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1506501139174-099022df5260?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--text-light);
+            padding: 0 20px;
+            margin-top: 60px;
+        }
+
+        #hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+        }
+
+        #hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Sections General */
+        section {
+            padding: 5rem 5%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 3rem;
+        }
+
+        /* Despre Noi / Arhitectura */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        /* Experiente */
+        #experiente {
+            background-color: var(--bg-section);
+            max-width: 100%;
+        }
+
+        .experiente-container {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--text-light);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card-img {
+            height: 200px;
+            background-color: #ccc;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card-content h4 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        /* Contact */
+        .contact-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 4rem 2rem;
+            border-radius: 15px;
+        }
+
+        .contact-content a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 1.2rem;
+            margin: 0.5rem 0;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background-color: var(--text-dark);
+            color: var(--text-light);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; /* Simplificare pentru prototip mobil */
+            }
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+            #hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="#" class="logo">Refugiul dintre Vii</a>
+            <ul class="nav-links">
+                <li><a href="#despre">Despre Noi</a></li>
+                <li><a href="#experiente">Experiențe</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="#contact" class="btn-rezerva">REZERVA ACUM</a>
+        </nav>
+    </header>
+
+    <section id="hero">
+        <h1>Refugiul dintre Vii</h1>
+        <p>O reconectare cu natura</p>
+        <a href="#contact" class="btn-rezerva" style="padding: 1rem 2rem; font-size: 1.2rem;">REZERVA ACUM</a>
+    </section>
+
+    <section id="despre">
+        <h2 class="section-title">Tradiție și Relaxare</h2>
+        <div class="about-grid">
+            <div class="about-text">
+                <h3>Refugiul Tău Ideal</h3>
+                <p>Am conceput acest ansamblu ca pe un loc de evadare, integrat armonios în peisajul viticol. Este destinația ideală pentru cei care caută echilibrul între momentele de relaxare, oferite de arhitectura pe piloni și vegetația naturalistă, și bucuria de a explora tradițiile locale.</p>
+                
+                <h3>Tradiție Viticolă și Turism Modern</h3>
+                <p>Refugiul dintre Vii oferă echilibrul ideal între frumusețea naturală a podgoriilor din Urlați și confortul turismului de nișă. Descoperă autenticitatea locului printr-o experiență care îmbină relaxarea cu explorarea.</p>
+                
+                <h3>Arhitectură Sustenabilă</h3>
+                <p>Am conceput acest ansamblu punând pe primul loc respectul pentru ecosistemul local. Am integrat unitățile de cazare pe piloni pentru a proteja solul și am creat trasee exclusiv pietonale și sisteme de tip cul-de-sac pentru a garanta liniștea și siguranța vizitatorilor.</p>
+            </div>
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Arhitectura Sustenabila" style="width: 100%; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+            </div>
+        </div>
+    </section>
+
+    <section id="experiente">
+        <div class="experiente-container">
+            <h2 class="section-title">Experiențe Propuse</h2>
+            <div class="cards">
+                
+                <!-- Card 1 -->
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Degustare de vinuri" class="card-img">
+                    <div class="card-content">
+                        <h4>Degustare la Vatră</h4>
+                        <p>Sesiune de degustare vinuri locale și tur ghidat în podgorie. O experiență autentică pentru iubitorii de vin.</p>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1587061949409-02df41d5e562?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Cazare A-frame" class="card-img">
+                    <div class="card-content">
+                        <h4>Weekend în Natură</h4>
+                        <p>Cazare în unități A-frame, acces la facilitățile comune și picnic în vie. Relaxare perfectă departe de zgomotul orașului.</p>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Glamping și Piscină" class="card-img">
+                    <div class="card-content">
+                        <h4>Experiența Completă</h4>
+                        <p>Sejur în zona de glamping/pensiune, acces la piscină și experiențe imersive de viticultură.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2 class="section-title">Rezervă Acum</h2>
+        <div class="contact-content">
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">Suntem aici să te ajutăm să îți planifici evadarea perfectă în natură.</p>
+            
+            <a href="mailto:contact@refugiuldintrevii.ro">✉️ contact@refugiuldintrevii.ro</a>
+            <a href="tel:+40700000000">📞 +40 7XX XXX XXX</a>
+            <a href="https://www.refugiuldintrevii.ro" target="_blank">🌐 www.refugiuldintrevii.ro</a>
+            
+            <br>
+            <a href="mailto:contact@refugiuldintrevii.ro" class="btn-rezerva" style="background-color: var(--secondary-color); margin-top: 1rem;">Trimite-ne un Email</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Refugiul dintre Vii. Toate drepturile rezervate.</p>
+    </footer>
+
+</body>
+</html>
+```
