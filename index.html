@@ -19,8 +19,9 @@
             --text-light: #ffffff;
             --bg-light: #FAF9F6;      /* Alb cald premium */
             --bg-section: #F4F2EE;    /* Fundal cald pentru secțiuni alternative */
-            --font-main: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
-            --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            /* Century Gothic aplicat global ca primă opțiune de sistem și fallback-uri compatibile */
+            --font-global: 'Century Gothic', CenturyGothic, 'Apple Gothic', 'Avant Garde', sans-serif;
+            --transition-smooth: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         * {
@@ -31,12 +32,17 @@
         }
 
         body {
-            font-family: var(--font-main);
+            font-family: var(--font-global);
             color: var(--text-dark);
             background-color: var(--bg-light);
-            line-height: 1.6;
-            font-size: 0.95rem;
+            line-height: 1.7;
+            font-size: 1rem;
             -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-global);
+            font-weight: 700; /* Century Gothic arată excelent și impunător când este boldat */
         }
 
         /* Navigation - Banner de sus cu albastrul exact */
@@ -48,8 +54,11 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.15);
             position: fixed;
             width: 100%;
+            height: 75px;
             top: 0;
             z-index: 1000;
+            display: flex;
+            align-items: center;
             transition: var(--transition-smooth);
         }
 
@@ -57,24 +66,25 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 5%;
-            max-width: 1000px; /* Layout îngustat elegant */
+            padding: 0 5%;
+            width: 100%;
+            max-width: 1100px;
             margin: auto;
             gap: 15px;
         }
 
         .logo {
-            font-family: var(--font-main);
-            font-size: 1.35rem;
+            font-family: var(--font-global);
+            font-size: clamp(1.1rem, 4vw, 1.4rem);
             font-weight: 700;
             color: var(--text-light);
             text-decoration: none;
             letter-spacing: 0.5px;
-            z-index: 1002;
-            flex-shrink: 1;
+            z-index: 1010;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
+            max-width: 65%;
         }
 
         .nav-links {
@@ -87,7 +97,7 @@
         .nav-links a {
             text-decoration: none;
             color: rgba(255, 255, 255, 0.9);
-            font-weight: 400;
+            font-weight: 700; /* Accentuat pe Century Gothic */
             font-size: 0.9rem;
             transition: var(--transition-smooth);
             position: relative;
@@ -125,11 +135,11 @@
         .btn-rezerva {
             background-color: var(--text-light);
             color: var(--primary-color);
-            padding: 0.55rem 1.3rem;
+            padding: 0.65rem 1.5rem;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 700;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             letter-spacing: 1px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
             transition: var(--transition-smooth);
@@ -156,8 +166,8 @@
             flex-direction: column;
             cursor: pointer;
             gap: 5px;
-            z-index: 1002;
-            padding: 5px;
+            z-index: 1010;
+            padding: 8px;
             flex-shrink: 0;
         }
 
@@ -172,7 +182,7 @@
         /* Hero Section */
         #hero {
             height: 100vh;
-            background: linear-gradient(rgba(44, 53, 71, 0.3), rgba(44, 53, 71, 0.6)), 
+            background: linear-gradient(rgba(44, 53, 71, 0.25), rgba(44, 53, 71, 0.55)), 
                         url('title.jpg') center/cover no-repeat;
             display: flex;
             flex-direction: column;
@@ -186,56 +196,51 @@
         }
 
         #hero h1 {
-            font-family: var(--font-main);
-            font-size: 3.5rem;
-            font-weight: 700;
+            font-size: clamp(2.2rem, 8vw, 4.2rem);
             margin-bottom: 1rem;
             letter-spacing: 1.5px;
             text-shadow: 0 2px 15px rgba(0,0,0,0.3);
-            animation: fadeIn 1.2s ease;
+            animation: fadeIn 1.5s ease;
             max-width: 800px;
         }
 
         #hero p {
-            font-size: 1.1rem;
-            font-weight: 300;
-            margin-bottom: 2.2rem;
-            letter-spacing: 5px;
+            font-size: clamp(0.9rem, 3vw, 1.2rem);
+            font-weight: 700;
+            margin-bottom: 2.5rem;
+            letter-spacing: 6px;
             text-transform: uppercase;
             color: rgba(255, 255, 255, 0.95);
             text-shadow: 0 2px 10px rgba(0,0,0,0.4);
-            animation: fadeIn 1.6s ease;
+            animation: fadeIn 2s ease;
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
+            from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
         /* Sections General */
         section {
-            padding: 6rem 24px;
-            max-width: 1000px;  /* Îngustat elegant */
+            padding: 7rem 24px;
+            max-width: 1100px;  
             margin: auto;
         }
 
         .section-title {
             text-align: center;
-            font-family: var(--font-main);
-            font-size: 2.4rem;
-            font-weight: 700;
+            font-size: 2.5rem;
             color: var(--primary-deep);
-            margin-bottom: 0.8rem;
-            letter-spacing: -0.5px;
+            margin-bottom: 1rem;
         }
 
         .section-subtitle {
             text-align: center;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             text-transform: uppercase;
-            letter-spacing: 3px;
+            letter-spacing: 4px;
             color: var(--accent-color);
-            margin-bottom: 3.5rem;
+            margin-bottom: 4rem;
             font-weight: 700;
         }
 
@@ -243,41 +248,37 @@
         .about-grid {
             display: grid;
             grid-template-columns: 1.05fr 0.95fr;
-            gap: 3.5rem;
+            gap: 4rem;
             align-items: center;
         }
 
         .about-text h3 {
-            font-family: var(--font-main);
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 1.2rem;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
             color: var(--primary-deep);
             line-height: 1.3;
         }
 
         .about-text p {
-            margin-bottom: 1.2rem;
-            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.02rem;
             color: var(--text-muted);
         }
 
         .highlight-box {
             border-left: 3px solid var(--primary-color);
-            padding-left: 1.2rem;
-            margin-bottom: 1.8rem;
+            padding-left: 1.5rem;
+            margin-bottom: 2rem;
         }
 
         .highlight-box h4 {
-            font-family: var(--font-main);
-            font-size: 1.15rem;
-            font-weight: 700;
+            font-size: 1.25rem;
             color: var(--primary-deep);
-            margin-bottom: 0.4rem;
+            margin-bottom: 0.5rem;
         }
 
         .highlight-box p {
-            font-size: 0.9rem;
+            font-size: 0.98rem;
             margin-bottom: 0;
         }
 
@@ -287,7 +288,7 @@
 
         .about-image img {
             width: 100%;
-            height: 440px;
+            height: 480px;
             border-radius: 12px;
             box-shadow: 0 30px 60px rgba(44, 53, 71, 0.08);
             object-fit: cover;
@@ -297,10 +298,10 @@
         .about-image::before {
             content: '';
             position: absolute;
-            top: -10px;
-            left: -10px;
-            width: 70px;
-            height: 70px;
+            top: -12px;
+            left: -12px;
+            width: 80px;
+            height: 80px;
             border-top: 4px solid var(--primary-color);
             border-left: 4px solid var(--primary-color);
             z-index: -1;
@@ -316,7 +317,7 @@
         }
 
         .gallery-container {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: auto;
             padding: 0 24px;
         }
@@ -324,14 +325,14 @@
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 1.2rem;
+            gap: 1.5rem;
         }
 
         .gallery-item {
             position: relative;
             border-radius: 12px;
             overflow: hidden;
-            height: 360px;
+            height: 380px;
             box-shadow: 0 15px 35px rgba(0,0,0,0.04);
             background-color: var(--primary-deep);
         }
@@ -340,35 +341,31 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: var(--transition-smooth);
         }
 
-        /* Text afișat direct pe imagine stabil, fără ascundere la hover */
+        /* Text afișat direct pe imagine (Fără Hover) */
         .gallery-overlay {
             position: absolute;
             inset: 0;
-            /* Gradient întunecat la bază pentru un contrast perfect cu textul alb */
-            background: linear-gradient(to top, rgba(35, 39, 47, 0.85) 0%, rgba(35, 39, 47, 0.4) 60%, rgba(35, 39, 47, 0.05) 100%);
+            background: linear-gradient(to top, rgba(35, 39, 47, 0.85) 0%, rgba(35, 39, 47, 0.45) 60%, rgba(35, 39, 47, 0.1) 100%);
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
-            padding: 1.5rem;
-            opacity: 1;
+            padding: 1.8rem;
+            opacity: 1; 
         }
 
         .gallery-overlay h4 {
-            font-family: var(--font-main);
-            font-size: 1.25rem;
-            font-weight: 700;
+            font-size: 1.35rem;
             color: var(--text-light);
-            margin-bottom: 0.4rem;
+            margin-bottom: 0.5rem;
             text-shadow: 0 1px 4px rgba(0,0,0,0.3);
         }
 
         .gallery-overlay p {
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             color: rgba(255, 255, 255, 0.95);
-            line-height: 1.4;
+            line-height: 1.5;
             text-shadow: 0 1px 3px rgba(0,0,0,0.2);
         }
 
@@ -376,7 +373,7 @@
         .cards {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
+            gap: 1.8rem;
         }
 
         .card {
@@ -389,13 +386,13 @@
         }
 
         .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(136, 151, 189, 0.12);
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(136, 151, 189, 0.12);
         }
 
         .card-img-wrapper {
             position: relative;
-            height: 220px;
+            height: 240px;
             overflow: hidden;
         }
 
@@ -407,30 +404,28 @@
         }
 
         .card:hover .card-img {
-            transform: scale(1.04);
+            transform: scale(1.06);
         }
 
         .card-content {
-            padding: 1.5rem;
+            padding: 1.8rem;
         }
 
         .card-content h4 {
-            font-family: var(--font-main);
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: 0.6rem;
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
             color: var(--primary-deep);
         }
 
         .card-content p {
             color: var(--text-muted);
-            font-size: 0.88rem;
-            margin-bottom: 1.2rem;
-            line-height: 1.5;
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
         }
 
         .card-link {
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             font-weight: 700;
             letter-spacing: 1px;
             text-transform: uppercase;
@@ -438,13 +433,216 @@
             text-decoration: none;
             display: inline-flex;
             align-items: center;
-            gap: 0.4rem;
+            gap: 0.5rem;
             transition: var(--transition-smooth);
         }
 
         .card-link:hover {
             color: var(--accent-color);
-            transform: translateX(3px);
+            transform: translateX(5px);
+        }
+
+        /* Secțiunea Cabană (Mutată deasupra Planifică-ți Vizita) */
+        #cabana {
+            background-color: var(--bg-section); /* Fundal alternat pentru fluență vizuală */
+            max-width: 100%;
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        .cabin-container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 0 24px;
+        }
+
+        .cabin-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.8rem;
+        }
+
+        .cabin-card {
+            background: var(--text-light);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.02);
+            border: 1px solid rgba(136, 151, 189, 0.1);
+            transition: var(--transition-smooth);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cabin-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(136, 151, 189, 0.12);
+        }
+
+        .cabin-img-wrapper {
+            position: relative;
+            height: 240px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .cabin-img-wrapper img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            transition: var(--transition-smooth);
+        }
+
+        .cabin-card:hover .cabin-img-wrapper img {
+            transform: scale(1.06);
+        }
+
+        /* Overlay discret pentru a semnala interacțiunea de zoom pe imagine */
+        .cabin-img-hover-overlay {
+            position: absolute;
+            inset: 0;
+            background-color: rgba(35, 39, 47, 0.3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: var(--transition-smooth);
+        }
+
+        .cabin-img-wrapper:hover .cabin-img-hover-overlay {
+            opacity: 1;
+        }
+
+        .hover-zoom-icon {
+            background-color: rgba(255, 255, 255, 0.9);
+            color: var(--primary-deep);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            transform: scale(0.9);
+            transition: var(--transition-smooth);
+        }
+
+        .cabin-img-wrapper:hover .hover-zoom-icon {
+            transform: scale(1);
+        }
+
+        /* Informații repoziționate sub poză conform cerinței tale */
+        .cabin-info {
+            padding: 1.8rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .cabin-info h4 {
+            font-size: 1.35rem;
+            margin-bottom: 0.8rem;
+            color: var(--primary-deep);
+            font-weight: 700;
+        }
+
+        .cabin-info p {
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+
+        /* Butonul dedicat pentru mărire imagine (Lightbox) */
+        .zoom-btn {
+            align-self: flex-start;
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            border: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            font-family: var(--font-global);
+            font-size: 0.8rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: var(--transition-smooth);
+        }
+
+        .zoom-btn:hover {
+            background-color: var(--accent-color);
+            box-shadow: 0 4px 15px rgba(197, 168, 128, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* Lightbox (Modal Fullscreen) */
+        .lightbox-modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: rgba(15, 17, 23, 0.95);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        .lightbox-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 75vh;
+            border-radius: 8px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
+            object-fit: contain;
+            animation: zoomIn 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.92); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 25px;
+            right: 30px;
+            color: #ffffff;
+            font-size: 40px;
+            font-weight: 300;
+            transition: var(--transition-smooth);
+            cursor: pointer;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+        }
+
+        .lightbox-close:hover {
+            background: var(--accent-color);
+            transform: rotate(90deg);
+        }
+
+        #lightbox-caption {
+            margin-top: 1.5rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.1rem;
+            max-width: 600px;
+            font-family: var(--font-global);
+            letter-spacing: 0.5px;
         }
 
         /* Contact & CTA */
@@ -477,21 +675,21 @@
             justify-content: space-around;
             gap: 2rem;
             flex-wrap: wrap;
-            margin: 3rem 0;
+            margin: 3.5rem 0;
         }
 
         .contact-item {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 0.6rem;
+            gap: 0.8rem;
             flex: 1;
             min-width: 200px;
         }
 
         .contact-item svg {
-            width: 28px;
-            height: 28px;
+            width: 32px;
+            height: 32px;
             stroke: var(--accent-color);
             stroke-width: 1.5;
             fill: none;
@@ -500,8 +698,8 @@
         .contact-item a, .contact-item span {
             color: rgba(255, 255, 255, 0.9);
             text-decoration: none;
-            font-size: 0.95rem;
-            font-weight: 400;
+            font-size: 1.05rem;
+            font-weight: 700;
             transition: var(--transition-smooth);
         }
 
@@ -513,10 +711,10 @@
             display: inline-block;
             background-color: var(--accent-color);
             color: var(--text-light);
-            padding: 0.9rem 2.5rem;
+            padding: 1rem 2.8rem;
             border-radius: 50px;
             font-weight: 700;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             letter-spacing: 1px;
             text-decoration: none;
             box-shadow: 0 4px 20px rgba(0,0,0,0.15);
@@ -533,10 +731,10 @@
         /* Footer */
         footer {
             text-align: center;
-            padding: 3.5rem 2rem;
+            padding: 4rem 2rem;
             background-color: #1A202C;
             color: rgba(255, 255, 255, 0.4);
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             border-top: 1px solid rgba(255,255,255,0.03);
         }
 
@@ -544,19 +742,16 @@
         @media (max-width: 1024px) {
             .about-grid {
                 grid-template-columns: 1fr;
-                gap: 2.5rem;
+                gap: 3rem;
             }
             .about-image img {
-                height: 380px;
+                height: 400px;
             }
         }
 
         @media (max-width: 991px) {
-            nav {
-                padding: 0.8rem 1.5rem;
-            }
-            .logo {
-                font-size: 1.15rem;
+            header {
+                height: 70px;
             }
 
             /* Activăm hamburger-ul */
@@ -564,22 +759,27 @@
                 display: flex;
             }
 
+            /* Ascundem butonul mare de REZERVĂ pentru a preveni coliziunea elementelor */
+            header nav .btn-rezerva {
+                display: none !important;
+            }
+
             /* Repoziționăm meniul lateral pe mobil */
             .nav-links {
                 position: fixed;
                 top: 0;
-                right: -100%;
+                right: -100%; /* Ascuns în dreapta ecranului implicit */
                 height: 100vh;
                 width: 75%;
-                max-width: 290px;
+                max-width: 320px;
                 background-color: var(--primary-deep);
                 flex-direction: column;
                 justify-content: center;
-                gap: 2rem;
+                gap: 2.2rem;
                 padding: 3rem;
                 transition: var(--transition-smooth);
                 box-shadow: -10px 0 30px rgba(0, 0, 0, 0.2);
-                z-index: 1001;
+                z-index: 1005; /* Sub z-index-ul hamburgerului și logo-ului */
             }
 
             /* Când meniul mobil este deschis */
@@ -588,14 +788,15 @@
             }
 
             .nav-links a {
-                font-size: 1.1rem;
+                font-size: 1.2rem;
                 color: var(--text-light);
             }
 
+            /* Activăm butonul de rezervare special pentru meniul mobil lateral */
             .mobile-only {
                 display: block;
                 width: 100%;
-                margin-top: 1rem;
+                margin-top: 1.5rem;
             }
 
             .btn-rezerva-mobile {
@@ -603,15 +804,15 @@
                 text-align: center;
                 background-color: var(--accent-color);
                 color: var(--text-light);
-                padding: 0.75rem 2rem;
+                padding: 0.8rem 2rem;
                 border-radius: 50px;
                 text-decoration: none;
                 font-weight: 700;
-                font-size: 0.9rem;
+                font-size: 0.95rem;
                 box-shadow: 0 4px 15px rgba(197, 168, 128, 0.2);
             }
 
-            /* Animarea hamburgerului */
+            /* Animarea butoanelor hamburger */
             .menu-toggle.active .bar:nth-child(1) {
                 transform: translateY(8px) rotate(45deg);
             }
@@ -622,87 +823,83 @@
                 transform: translateY(-8px) rotate(-45deg);
             }
 
-            .btn-rezerva {
-                padding: 0.5rem 1.1rem;
-                font-size: 0.75rem;
-            }
-
             #hero {
                 padding: 0 20px;
             }
-            #hero h1 {
-                font-size: 2.4rem;
-            }
-            #hero p {
-                font-size: 0.85rem;
-                letter-spacing: 3px;
-                margin-bottom: 1.8rem;
-            }
             section {
-                padding: 4rem 1.25rem;
+                padding: 4.5rem 1.25rem;
             }
             .section-title {
-                font-size: 1.9rem;
+                font-size: 2.1rem;
             }
             .section-subtitle {
-                margin-bottom: 2.2rem;
+                margin-bottom: 2.5rem;
                 letter-spacing: 2px;
-                font-size: 0.75rem;
+                font-size: 0.8rem;
             }
             .about-text h3 {
-                font-size: 1.5rem;
+                font-size: 1.8rem;
             }
             .about-image img {
-                height: 280px;
+                height: 300px;
             }
             .gallery-grid {
                 grid-template-columns: 1fr;
-                gap: 1rem;
+                gap: 1.2rem;
             }
             .gallery-item {
-                height: 300px;
+                height: 320px;
+            }
+            .cabin-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            .cabin-card {
+                max-width: 450px;
+                margin: 0 auto;
             }
             .cards {
                 grid-template-columns: 1fr;
-                gap: 1.2rem;
+                gap: 1.5rem;
             }
             .card-img-wrapper {
-                height: 180px;
+                height: 200px;
             }
             .contact-details {
                 flex-direction: column;
-                gap: 1.5rem;
-                margin: 2rem 0;
+                gap: 2rem;
+                margin: 2.5rem 0;
             }
             .contact-item {
                 min-width: unset;
             }
             .contact-item a, .contact-item span {
-                font-size: 0.9rem;
+                font-size: 0.95rem;
             }
             .contact-cta {
                 width: 100%;
-                padding: 0.9rem 1.5rem;
+                padding: 1rem 1.5rem;
             }
         }
 
-        /* Optimizări pentru ecrane de telefoane înguste (< 480px) */
-        @media (max-width: 480px) {
-            header nav .btn-rezerva {
-                display: none !important; /* Ascundem butonul mic, cel din interiorul meniului rămâne */
-            }
-            .logo {
-                font-size: 1.1rem;
-            }
-        }
-
-        /* Suport pentru ecrane ultra-mici (< 360px) */
-        @media (max-width: 360px) {
-            .logo {
-                font-size: 0.95rem;
-            }
+        /* Corecție suplimentară pentru ecrane de mobil/tablete */
+        @media (max-width: 768px) {
             nav {
-                padding: 0.8rem 1rem;
+                padding: 0 1.5rem;
+            }
+        }
+
+        /* Optimizări pentru ecrane de mobil foarte mici (< 480px) */
+        @media (max-width: 480px) {
+            .lightbox-close {
+                top: 15px;
+                right: 15px;
+                width: 40px;
+                height: 40px;
+                font-size: 30px;
+            }
+            #lightbox-caption {
+                font-size: 0.95rem;
             }
         }
     </style>
@@ -713,10 +910,12 @@
         <nav>
             <a href="#" class="logo">Refugiul dintre Vii</a>
 
+            <!-- Link-urile de navigare în ordinea corectă de parcurgere -->
             <ul class="nav-links" id="nav-links">
                 <li><a href="#concept">Concept</a></li>
                 <li><a href="#atmosfera">Atmosferă</a></li>
                 <li><a href="#experiente">Experiențe</a></li>
+                <li><a href="#cabana">Cabana</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <li class="mobile-only">
                     <a href="#contact" class="btn-rezerva-mobile">REZERVĂ ACUM</a>
@@ -724,8 +923,10 @@
             </ul>
 
             <div class="nav-right">
+                <!-- Butonul de Rezervă din Header (ascuns complet sub 991px de o singură regulă stabilă) -->
                 <a href="#contact" class="btn-rezerva">REZERVĂ</a>
 
+                <!-- Butonul hamburger, vizibil sub 991px -->
                 <div class="menu-toggle" id="mobile-menu">
                     <span class="bar"></span>
                     <span class="bar"></span>
@@ -739,7 +940,7 @@
     <section id="hero">
         <h1>Refugiul dintre Vii</h1>
         <p>O reconectare cu natura</p>
-        <a href="#contact" class="btn-rezerva" style="padding: 0.85rem 2.2rem; font-size: 0.85rem; background-color: var(--accent-color); color: white; margin-right: 0;">PLANIFICĂ EVADAREA</a>
+        <a href="#contact" class="btn-rezerva" style="padding: 1rem 2.5rem; font-size: 0.95rem; background-color: var(--accent-color); color: white; margin-right: 0;">PLANIFICĂ EVADAREA</a>
     </section>
 
     <!-- Secțiunea Concept -->
@@ -768,14 +969,14 @@
         </div>
     </section>
 
-    <!-- Secțiunea Atmosferă (Text direct pe poze stabil) -->
+    <!-- Secțiunea Atmosferă -->
     <section id="atmosfera">
         <div class="gallery-container">
             <h2 class="section-title">Oameni, Vin și Bucurie</h2>
             <p class="section-subtitle">Clipe memorabile petrecute alături de cei dragi</p>
 
             <div class="gallery-grid">
-                <!-- Imagine 1: Cina din vie sub ghirlande -->
+                <!-- Imagine 1 -->
                 <div class="gallery-item">
                     <img src="site/poze%20filler/download%20(2).jpg" alt="Cină elegantă organizată direct în rândurile de viță de vie">
                     <div class="gallery-overlay">
@@ -784,7 +985,7 @@
                     </div>
                 </div>
 
-                <!-- Imagine 2: Ciocnitul paharelor -->
+                <!-- Imagine 2 -->
                 <div class="gallery-item">
                     <img src="site/poze%20filler/download%20(4).jpg" alt="Oameni ciocnind pahare de vin roșu la masă">
                     <div class="gallery-overlay">
@@ -793,7 +994,7 @@
                     </div>
                 </div>
 
-                <!-- Imagine 3: Recoltă aeriană -->
+                <!-- Imagine 3 -->
                 <div class="gallery-item">
                     <img src="site/poze%20filler/Provence%20Harvest%20Magic.jpg" alt="Vedere aeriană cu recoltarea strugurilor în podgorie">
                     <div class="gallery-overlay">
@@ -811,7 +1012,7 @@
         <p class="section-subtitle">Făurim momente croite special pentru tine</p>
 
         <div class="cards">
-            <!-- Card 1: Degustare la Vatră -->
+            <!-- Card 1 -->
             <div class="card">
                 <div class="card-img-wrapper">
                     <img src="site/poze%20filler/https___i_pinimg.com_originals_ed_aa_64_edaa64e7ea9198fdf004334d05aa0872%20(1).jpg" alt="Femeie analizând olfactiv un pahar de vin" class="card-img">
@@ -823,7 +1024,7 @@
                 </div>
             </div>
 
-            <!-- Card 2: Weekend în Natură -->
+            <!-- Card 2 -->
             <div class="card">
                 <div class="card-img-wrapper">
                     <img src="site/poze%20filler/download%20(1).jpg" alt="Drum de țară șerpuind prin câmpul auriu la apus" class="card-img">
@@ -835,7 +1036,7 @@
                 </div>
             </div>
 
-            <!-- Card 3: Experiența Completă -->
+            <!-- Card 3 -->
             <div class="card">
                 <div class="card-img-wrapper">
                     <img src="site/poze%20filler/Discover%20brands,%20share%20your%20honest%20reviews%20_%20Thingtesting.jpg" alt="Femeie fericită sprijinită de o ladă plină de struguri culeși" class="card-img">
@@ -849,13 +1050,83 @@
         </div>
     </section>
 
+    <!-- Secțiunea Cabana (Poziționată acum exact înainte de Planifică-ți Vizita) -->
+    <section id="cabana">
+        <div class="cabin-container">
+            <h2 class="section-title">Cabana din Podgorie</h2>
+            <p class="section-subtitle">O bijuterie arhitecturală cu design modern integrat în peisaj</p>
+
+            <div class="cabin-grid">
+                <!-- Imagine 1: Randare 3D Frontal -->
+                <div class="cabin-card">
+                    <div class="cabin-img-wrapper" onclick="openLightbox('Gemini_Generated_Image_hi7azchi7azchi7a (1).png', 'Cabana - Vedere Perspectivă Frontală (Randare 3D)')">
+                        <img src="Gemini_Generated_Image_hi7azchi7azchi7a (1).png" alt="Randare 3D - Vedere Frontală și Lateral-Stânga">
+                        <div class="cabin-img-hover-overlay">
+                            <span class="hover-zoom-icon">
+                                <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="cabin-info">
+                        <h4>Vedere Frontală</h4>
+                        <p>Perspectivă frontal-laterală ce evidențiază ferestrele generoase, structura modernă de tip A-frame și armonia cu natura din jur.</p>
+                        <button class="zoom-btn" onclick="openLightbox('Gemini_Generated_Image_hi7azchi7azchi7a (1).png', 'Cabana - Vedere Perspectivă Frontală (Randare 3D)')">
+                            <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2.5" fill="none"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                            Mărește
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Imagine 2: Randare 3D Spate/Lateral -->
+                <div class="cabin-card">
+                    <div class="cabin-img-wrapper" onclick="openLightbox('Gemini_Generated_Image_vhlo1jvhlo1jvhlo (1).png', 'Cabana - Vedere Perspectivă Laterală (Randare 3D)')">
+                        <img src="Gemini_Generated_Image_vhlo1jvhlo1jvhlo (1).png" alt="Randare 3D - Detaliu Fațadă Spate și Acoperiș">
+                        <div class="cabin-img-hover-overlay">
+                            <span class="hover-zoom-icon">
+                                <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="cabin-info">
+                        <h4>Vedere Laterală</h4>
+                        <p>Detaliu al fațadei posterioare și al acoperișului abrupt conceput din țiglă, asigurând izolare termică optimă și un design memorabil.</p>
+                        <button class="zoom-btn" onclick="openLightbox('Gemini_Generated_Image_vhlo1jvhlo1jvhlo (1).png', 'Cabana - Vedere Perspectivă Laterală (Randare 3D)')">
+                            <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2.5" fill="none"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                            Mărește
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Imagine 3: Plan Tehnic Fațade -->
+                <div class="cabin-card">
+                    <div class="cabin-img-wrapper" onclick="openLightbox('fatade.png', 'Plan Tehnic - Detalii Fațade Proiect Cabană')">
+                        <img src="fatade.png" alt="Plan Tehnic Fațade - Schițe de Proiectare și Materiale">
+                        <div class="cabin-img-hover-overlay">
+                            <span class="hover-zoom-icon">
+                                <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="cabin-info">
+                        <h4>Plan Fațade (Tehnic)</h4>
+                        <p>Schița arhitecturală de ansamblu ce ilustrează cotele de înălțime, finisajele de tencuială driscută și placajele din lemn elegant.</p>
+                        <button class="zoom-btn" onclick="openLightbox('fatade.png', 'Plan Tehnic - Detalii Fațade Proiect Cabană')">
+                            <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2.5" fill="none"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                            Mărește
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Secțiunea Contact -->
     <section id="contact">
         <div class="contact-container">
             <h2 class="section-title">Planifică-ți Vizita</h2>
             <p class="section-subtitle">Suntem bucuroși să te ghidăm</p>
 
-            <p style="font-size: 0.95rem; color: rgba(255, 255, 255, 0.85); margin-bottom: 2.2rem; font-weight: 300; line-height: 1.6;">
+            <p style="font-size: 1.1rem; color: rgba(255, 255, 255, 0.85); margin-bottom: 2.5rem; font-weight: 300; line-height: 1.7;">
                 Porțile refugiului nostru sunt mereu deschise pentru iubitorii de frumos, tihnă și poveste. Rezervă-ți locul în avans pentru a te asigura că vei experimenta magia pe deplin.
             </p>
 
@@ -878,14 +1149,22 @@
         </div>
     </section>
 
+    <!-- Fereastră modală Lightbox (Fullscreen) pentru detalii imagini -->
+    <div id="lightbox" class="lightbox-modal">
+        <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+        <img class="lightbox-content" id="lightbox-img" alt="Imagine detaliată">
+        <div id="lightbox-caption"></div>
+    </div>
+
     <!-- Footer -->
     <footer>
         <p>&copy; 2026 Refugiul dintre Vii. Toate drepturile rezervate.</p>
-        <p style="font-size: 0.75rem; margin-top: 0.5rem; color: rgba(255, 255, 255, 0.25);">Creat cu grijă pentru pasionații de liniște și vin premium.</p>
+        <p style="font-size: 0.8rem; margin-top: 0.5rem; color: rgba(255, 255, 255, 0.25);">Creat cu grijă pentru pasionații de liniște și vin premium.</p>
     </footer>
 
-    <!-- Script simplu de JS pentru Toggle-ul meniului mobil -->
+    <!-- Script JS pentru Funcționalități Interactive -->
     <script>
+        // 1. Meniul Mobil Hamburger
         const mobileMenu = document.getElementById('mobile-menu');
         const navLinks = document.getElementById('nav-links');
 
@@ -894,11 +1173,44 @@
             navLinks.classList.toggle('active');
         });
 
+        // Închidere automată meniu mobil la click pe un link
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.remove('active');
                 navLinks.classList.remove('active');
             });
+        });
+
+        // 2. Funcții pentru Lightbox (Mărire Imagini Cabană)
+        function openLightbox(src, altText) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const lightboxCaption = document.getElementById('lightbox-caption');
+
+            lightbox.style.display = "flex";
+            lightboxImg.src = src;
+            lightboxCaption.textContent = altText;
+            document.body.style.overflow = "hidden"; // Oprim scroll-ul în fundal
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.style.display = "none";
+            document.body.style.overflow = "auto"; // Re-activăm scroll-ul
+        }
+
+        // Închidere modal la click în afara imaginii (pe fundalul întunecat)
+        document.getElementById('lightbox').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeLightbox();
+            }
+        });
+
+        // Închidere modal la apăsarea tastei Escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === "Escape") {
+                closeLightbox();
+            }
         });
     </script>
 
