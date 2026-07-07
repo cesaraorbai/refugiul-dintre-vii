@@ -1,330 +1,261 @@
-```html
 <!DOCTYPE html>
-<html lang="ro">
+<html lang="ro" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Refugiul dintre Vii | O reconectare cu natura</title>
+    <title>Refugiul dintre Vii - O reconectare cu natura</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* CSS Reset & Variables */
+        /* Paletă personalizată inspirată de broșura maro/crem */
         :root {
-            --primary-color: #5d6d7e; /* Albastru-gri inspirat din fundalul broșurii */
-            --secondary-color: #8c9276; /* Verde natural */
-            --text-dark: #333333;
-            --text-light: #ffffff;
-            --bg-light: #f9f9f9;
-            --bg-section: #eaeded;
-            --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: var(--font-main);
-            color: var(--text-dark);
-            line-height: 1.6;
-        }
-
-        /* Navigation */
-        header {
-            background-color: var(--text-light);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 5%;
-            max-width: 1200px;
-            margin: auto;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--primary-color);
-            text-decoration: none;
-        }
-
-        .nav-links {
-            list-style: none;
-            display: flex;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-dark);
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--secondary-color);
-        }
-
-        .btn-rezerva {
-            background-color: var(--primary-color);
-            color: var(--text-light);
-            padding: 0.5rem 1.5rem;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background 0.3s;
-        }
-
-        .btn-rezerva:hover {
-            background-color: #4a5866;
-        }
-
-        /* Hero Section */
-        #hero {
-            height: 100vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1506501139174-099022df5260?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: var(--text-light);
-            padding: 0 20px;
-            margin-top: 60px;
-        }
-
-        #hero h1 {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            letter-spacing: 2px;
-        }
-
-        #hero p {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-        /* Sections General */
-        section {
-            padding: 5rem 5%;
-            max-width: 1200px;
-            margin: auto;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-bottom: 3rem;
-        }
-
-        /* Despre Noi / Arhitectura */
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .about-text h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            color: var(--secondary-color);
-        }
-
-        .about-text p {
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-        }
-
-        /* Experiente */
-        #experiente {
-            background-color: var(--bg-section);
-            max-width: 100%;
-        }
-
-        .experiente-container {
-            max-width: 1200px;
-            margin: auto;
-        }
-
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .card {
-            background: var(--text-light);
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-        }
-
-        .card-img {
-            height: 200px;
-            background-color: #ccc;
-            width: 100%;
-            object-fit: cover;
-        }
-
-        .card-content {
-            padding: 1.5rem;
-        }
-
-        .card-content h4 {
-            font-size: 1.4rem;
-            margin-bottom: 0.5rem;
-            color: var(--primary-color);
-        }
-
-        /* Contact */
-        .contact-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            background-color: var(--primary-color);
-            color: var(--text-light);
-            padding: 4rem 2rem;
-            border-radius: 15px;
-        }
-
-        .contact-content a {
-            color: var(--text-light);
-            text-decoration: none;
-            font-size: 1.2rem;
-            margin: 0.5rem 0;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 2rem;
-            background-color: var(--text-dark);
-            color: var(--text-light);
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none; /* Simplificare pentru prototip mobil */
-            }
-            .about-grid {
-                grid-template-columns: 1fr;
-            }
-            #hero h1 {
-                font-size: 2.5rem;
-            }
+            --color-primary: #5c4033; /* Maro închis vinficativ/pământiu */
+            --color-secondary: #dfd5c6; /* Crem / Bej deschis */
+            --color-accent: #8b5a2b; /* Maro cald / Lemn */
         }
     </style>
 </head>
-<body>
+<body class="bg-[#faf8f5] text-slate-800 font-sans antialiased">
 
-    <header>
-        <nav>
-            <a href="#" class="logo">Refugiul dintre Vii</a>
-            <ul class="nav-links">
-                <li><a href="#despre">Despre Noi</a></li>
-                <li><a href="#experiente">Experiențe</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <a href="#contact" class="btn-rezerva">REZERVA ACUM</a>
-        </nav>
+    <nav class="fixed top-0 left-0 w-full bg-white/90 backdrop-blur-md shadow-sm z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex-shrink-0">
+                    <a href="#" class="text-2xl font-bold tracking-wider text-[#5c4033]">
+                        REFUGIUL <span class="font-light text-[#8b5a2b]">dintre Vii</span>
+                    </a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-center space-x-8 text-sm font-medium uppercase tracking-wider">
+                        <a href="#despre" class="text-slate-600 hover:text-[#8b5a2b] transition-colors">Despre Noi</a>
+                        <a href="#sustenabilitate" class="text-slate-600 hover:text-[#8b5a2b] transition-colors">Sustenabilitate</a>
+                        <a href="#experiente" class="text-slate-600 hover:text-[#8b5a2b] transition-colors">Experiențe</a>
+                        <a href="#contact" class="bg-[#5c4033] text-white px-5 py-2.5 rounded-sm hover:bg-[#8b5a2b] transition-colors shadow-md">Rezervă Acum</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="relative min-h-screen flex items-center justify-center bg-cover bg-center pt-20" style="background-image: linear-gradient(rgba(92, 64, 51, 0.45), rgba(92, 64, 51, 0.65)), url('https://images.unsplash.com/photo-1504279581604-534c0364ee2f?q=80&w=1920&auto=format&fit=crop');">
+        <div class="text-center px-4 max-w-4xl mx-auto">
+            <span class="text-[#dfd5c6] text-xs font-bold uppercase tracking-[0.3em] block mb-4">Tradiție Viticolă și Turism Modern</span> [cite: 10, 11]
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-serif text-white tracking-wide mb-6 leading-tight">
+                Refugiul dintre Vii
+            </h1> [cite: 16]
+            <p class="text-xl sm:text-2xl text-[#dfd5c6] italic font-light tracking-wide max-w-2xl mx-auto mb-10">
+                O reconectare cu natura
+            </p> [cite: 17]
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#experiente" class="bg-[#dfd5c6] text-[#5c4033] font-semibold tracking-wider text-sm uppercase px-8 py-4 rounded-sm hover:bg-white transition-all shadow-lg">
+                    Explorează Experiențele
+                </a>
+                <a href="#contact" class="border-2 border-white text-white font-semibold tracking-wider text-sm uppercase px-8 py-4 rounded-sm hover:bg-white hover:text-[#5c4033] transition-all">
+                    Rezervă Acum
+                </a> [cite: 36]
+            </div>
+        </div>
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white/70 animate-bounce">
+            <a href="#despre"><i class="fa-solid fa-chevron-down text-2xl"></i></a>
+        </div>
     </header>
 
-    <section id="hero">
-        <h1>Refugiul dintre Vii</h1>
-        <p>O reconectare cu natura</p>
-        <a href="#contact" class="btn-rezerva" style="padding: 1rem 2rem; font-size: 1.2rem;">REZERVA ACUM</a>
-    </section>
-
-    <section id="despre">
-        <h2 class="section-title">Tradiție și Relaxare</h2>
-        <div class="about-grid">
-            <div class="about-text">
-                <h3>Refugiul Tău Ideal</h3>
-                <p>Am conceput acest ansamblu ca pe un loc de evadare, integrat armonios în peisajul viticol. Este destinația ideală pentru cei care caută echilibrul între momentele de relaxare, oferite de arhitectura pe piloni și vegetația naturalistă, și bucuria de a explora tradițiile locale.</p>
-                
-                <h3>Tradiție Viticolă și Turism Modern</h3>
-                <p>Refugiul dintre Vii oferă echilibrul ideal între frumusețea naturală a podgoriilor din Urlați și confortul turismului de nișă. Descoperă autenticitatea locului printr-o experiență care îmbină relaxarea cu explorarea.</p>
-                
-                <h3>Arhitectură Sustenabilă</h3>
-                <p>Am conceput acest ansamblu punând pe primul loc respectul pentru ecosistemul local. Am integrat unitățile de cazare pe piloni pentru a proteja solul și am creat trasee exclusiv pietonale și sisteme de tip cul-de-sac pentru a garanta liniștea și siguranța vizitatorilor.</p>
-            </div>
-            <div class="about-image">
-                <img src="https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Arhitectura Sustenabila" style="width: 100%; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
-            </div>
-        </div>
-    </section>
-
-    <section id="experiente">
-        <div class="experiente-container">
-            <h2 class="section-title">Experiențe Propuse</h2>
-            <div class="cards">
-                
-                <!-- Card 1 -->
-                <div class="card">
-                    <img src="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Degustare de vinuri" class="card-img">
-                    <div class="card-content">
-                        <h4>Degustare la Vatră</h4>
-                        <p>Sesiune de degustare vinuri locale și tur ghidat în podgorie. O experiență autentică pentru iubitorii de vin.</p>
-                    </div>
+    <section id="despre" class="py-24 bg-white scroll-mt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-5 space-y-6">
+                    <span class="text-[#8b5a2b] text-xs font-bold uppercase tracking-widest block">Refugiul tău ideal</span> [cite: 37]
+                    <h2 class="text-3xl sm:text-4xl font-serif text-[#5c4033] tracking-wide">
+                        Echilibrul ideal între natură și confort
+                    </h2>
+                    <div class="h-1 w-20 bg-[#8b5a2b]"></div>
+                    <p class="text-slate-600 leading-relaxed text-lg">
+                        Refugiul dintre Vii oferă echilibrul ideal între frumuseţea naturală a podgoriilor din Urlaţi şi confortul turismului de nişă.
+                    </p> [cite: 12]
+                    <p class="text-slate-600 leading-relaxed">
+                        Am conceput acest ansamblu ca pe un loc de evadare, integrat armonios în peisajul viticol. Este destinația ideală pentru cei care caută echilibrul între momentele de relaxare, oferite de arhitectura pe piloni și vegetaţia naturalistă, şi bucuria de a explora tradiţiile locale.
+                    </p> [cite: 38, 39]
                 </div>
-
-                <!-- Card 2 -->
-                <div class="card">
-                    <img src="https://images.unsplash.com/photo-1587061949409-02df41d5e562?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Cazare A-frame" class="card-img">
-                    <div class="card-content">
-                        <h4>Weekend în Natură</h4>
-                        <p>Cazare în unități A-frame, acces la facilitățile comune și picnic în vie. Relaxare perfectă departe de zgomotul orașului.</p>
-                    </div>
+                <div class="lg:col-span-7 grid grid-cols-2 gap-4">
+                    <img src="https://images.unsplash.com/photo-1543418219-44e30b057fc5?q=80&w=800&auto=format&fit=crop" alt="Podgorie" class="w-full h-80 object-cover rounded-sm shadow-md mt-8">
+                    <img src="https://images.unsplash.com/photo-1516594798947-e65505dbb29d?q=80&w=800&auto=format&fit=crop" alt="Relaxare" class="w-full h-80 object-cover rounded-sm shadow-md">
                 </div>
-
-                <!-- Card 3 -->
-                <div class="card">
-                    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Glamping și Piscină" class="card-img">
-                    <div class="card-content">
-                        <h4>Experiența Completă</h4>
-                        <p>Sejur în zona de glamping/pensiune, acces la piscină și experiențe imersive de viticultură.</p>
-                    </div>
-                </div>
-
             </div>
         </div>
     </section>
 
-    <section id="contact">
-        <h2 class="section-title">Rezervă Acum</h2>
-        <div class="contact-content">
-            <p style="font-size: 1.2rem; margin-bottom: 2rem;">Suntem aici să te ajutăm să îți planifici evadarea perfectă în natură.</p>
-            
-            <a href="mailto:contact@refugiuldintrevii.ro">✉️ contact@refugiuldintrevii.ro</a>
-            <a href="tel:+40700000000">📞 +40 7XX XXX XXX</a>
-            <a href="https://www.refugiuldintrevii.ro" target="_blank">🌐 www.refugiuldintrevii.ro</a>
-            
-            <br>
-            <a href="mailto:contact@refugiuldintrevii.ro" class="btn-rezerva" style="background-color: var(--secondary-color); margin-top: 1rem;">Trimite-ne un Email</a>
+    <section id="sustenabilitate" class="py-24 bg-[#5c4033] text-white scroll-mt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-[#dfd5c6] text-xs font-bold uppercase tracking-widest block mb-2">Respect pentru Ecosistem</span>
+                <h2 class="text-3xl sm:text-4xl font-serif tracking-wide text-[#dfd5c6]">Arhitectură Sustenabilă</h2> [cite: 13]
+                <p class="mt-4 text-white/80 text-lg">
+                    Am conceput acest ansamblu punând pe primul loc respectul pentru ecosistemul local.
+                </p> [cite: 14]
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white/5 border border-white/10 p-8 rounded-sm hover:bg-white/10 transition-all">
+                    <div class="text-[#dfd5c6] text-3xl mb-6">
+                        <i class="fa-solid fa-tree-city"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 text-[#dfd5c6]">Protejarea Solului</h3>
+                    <p class="text-white/70 leading-relaxed">
+                        Am integrat unitățile de cazare pe piloni pentru a proteja solul intact și ecosistemul din jur.
+                    </p> [cite: 15]
+                </div>
+
+                <div class="bg-white/5 border border-white/10 p-8 rounded-sm hover:bg-white/10 transition-all">
+                    <div class="text-[#dfd5c6] text-3xl mb-6">
+                        <i class="fa-solid fa-person-walking"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 text-[#dfd5c6]">Trasee Pietonale</h3>
+                    <p class="text-white/70 leading-relaxed">
+                        Am creat trasee exclusiv pietonale pentru a minimiza poluarea și a te menține conectat direct cu natura.
+                    </p> [cite: 15]
+                </div>
+
+                <div class="bg-white/5 border border-white/10 p-8 rounded-sm hover:bg-white/10 transition-all">
+                    <div class="text-[#dfd5c6] text-3xl mb-6">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 text-[#dfd5c6]">Liniște & Siguranță</h3>
+                    <p class="text-white/70 leading-relaxed">
+                        Sistemele de tip cul-de-sac garantează liniștea profundă și siguranța deplină a tuturor vizitatorilor noștri.
+                    </p> [cite: 15]
+                </div>
+            </div>
         </div>
     </section>
 
-    <footer>
-        <p>&copy; 2026 Refugiul dintre Vii. Toate drepturile rezervate.</p>
+    <section id="experiente" class="py-24 bg-[#faf8f5] scroll-mt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-[#8b5a2b] text-xs font-bold uppercase tracking-widest block mb-2">Tradiție și Relaxare</span> [cite: 23]
+                <h2 class="text-3xl sm:text-4xl font-serif text-[#5c4033] tracking-wide">Experiențe Propuse</h2> [cite: 21]
+                <p class="mt-4 text-slate-600">
+                    Descoperă autenticitatea podgoriilor din Urlaţi printr-o experiență care îmbină relaxarea cu explorarea.
+                </p> [cite: 24]
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-sm overflow-hidden shadow-md group border border-slate-100">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=800&auto=format&fit=crop" alt="Degustare" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-xl font-serif text-[#5c4033] mb-3">Degustare la Vatră</h3> [cite: 22]
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Sesiune de degustare vinuri locale şi tur ghidat în podgorie pentru a înțelege secretele locului.
+                        </p> [cite: 22]
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-sm overflow-hidden shadow-md group border border-slate-100">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1470240731273-7821a6eeb6bd?q=80&w=800&auto=format&fit=crop" alt="A-frame" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-xl font-serif text-[#5c4033] mb-3">Weekend în Natură</h3> [cite: 25]
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Cazare în unități elegante de tip A-frame, acces complet la toate facilitățile comune şi picnic organizat în vie.
+                        </p> [cite: 26]
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-sm overflow-hidden shadow-md group border border-slate-100">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?q=80&w=800&auto=format&fit=crop" alt="Glamping" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-xl font-serif text-[#5c4033] mb-3">Experiența Completă</h3> [cite: 27]
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Sejur extins în zona de glamping/pensiune, acces dedicat la piscină şi experiențe imersive de viticultură.
+                        </p> [cite: 28]
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-24 bg-white border-t border-slate-100 scroll-mt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                <div class="space-y-8">
+                    <div>
+                        <span class="text-[#8b5a2b] text-xs font-bold uppercase tracking-widest block mb-2">Planifică vizita</span>
+                        <h2 class="text-3xl sm:text-4xl font-serif text-[#5c4033] tracking-wide">Rezervă Acum</h2> [cite: 36]
+                        <p class="mt-4 text-slate-600">
+                            Suntem aici pentru a-ți oferi o evadare memorabilă în inima podgoriilor. Contactează-ne direct sau folosește detaliile de mai jos.
+                        </p>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 rounded-full bg-[#dfd5c6]/30 flex items-center justify-center text-[#5c4033]">
+                                <i class="fa-solid fa-globe"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400">Website</h4>
+                                <a href="https://www.refugiuldintrevii.ro" target="_blank" class="text-[#5c4033] font-medium hover:underline">www.refugiuldintrevii.ro</a> [cite: 31]
+                            </div>
+                        </div>
+
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 rounded-full bg-[#dfd5c6]/30 flex items-center justify-center text-[#5c4033]">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400">Email</h4>
+                                <a href="mailto:contact@refugiuldintrevii.ro" class="text-[#5c4033] font-medium hover:underline">contact@refugiuldintrevii.ro</a> [cite: 33]
+                            </div>
+                        </div>
+
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 rounded-full bg-[#dfd5c6]/30 flex items-center justify-center text-[#5c4033]">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400">Phone Number</h4> [cite: 34]
+                                <a href="tel:+40700000000" class="text-[#5c4033] font-medium hover:underline">+40 7XX XXX XXX</a> [cite: 35]
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-[#faf8f5] p-8 sm:p-10 rounded-sm shadow-sm border border-slate-100 flex flex-col justify-between">
+                    <form class="space-y-6" onsubmit="event.preventDefault(); alert('Acesta este un prototip! Datele nu au fost trimise.');">
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">Nume Complet</label>
+                            <input type="text" required class="w-full bg-white border border-slate-200 px-4 py-3 text-sm rounded-sm focus:outline-none focus:border-[#5c4033]">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">Adresă de Email</label>
+                            <input type="email" required class="w-full bg-white border border-slate-200 px-4 py-3 text-sm rounded-sm focus:outline-none focus:border-[#5c4033]">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">Mesaj / Perioadă solicitată</label>
+                            <textarea rows="4" required class="w-full bg-white border border-slate-200 px-4 py-3 text-sm rounded-sm focus:outline-none focus:border-[#5c4033]"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-[#5c4033] text-white font-semibold text-sm uppercase tracking-wider py-4 rounded-sm hover:bg-[#8b5a2b] transition-colors shadow-md">
+                            Trimite Solicitarea
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-[#5c4033] text-white/60 py-12 border-t border-white/5 text-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div>
+                <p>&copy; 2026 Refugiul dintre Vii. Toate drepturile rezervate.</p>
+            </div>
+            <div class="flex space-x-6">
+                <a href="https://www.refugiuldintrevii.ro" class="hover:text-white transition-colors">www.refugiuldintrevii.ro</a> [cite: 18]
+            </div>
+        </div>
     </footer>
 
 </body>
 </html>
-```
