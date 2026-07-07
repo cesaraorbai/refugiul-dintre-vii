@@ -1,6 +1,4 @@
-# Codul Sursă Final (`index.html`) cu Căi Actualizate
-
-Iată codul complet configurat special pentru structura de directoare de pe GitHub. Copiază-l în fișierul tău `index.html`.
+# Codul Sursă Actualizat (`index.html`) - Fundal Nou (title.jpg)
 
 ```html
 <!DOCTYPE html>
@@ -8,7 +6,7 @@ Iată codul complet configurat special pentru structura de directoare de pe GitH
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Refugiul dintre Vii | O reconectare cu natura.</title>
+    <title>Refugiul dintre Vii | O reconectare cu natura</title>
     <!-- Google Fonts premium -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -44,6 +42,7 @@ Iată codul complet configurat special pentru structura de directoare de pe GitH
             color: var(--text-dark);
             background-color: var(--bg-light);
             line-height: 1.7;
+            font-size: 1rem;
             -webkit-font-smoothing: antialiased;
         }
 
@@ -65,14 +64,14 @@ Iată codul complet configurat special pentru structura de directoare de pe GitH
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.2rem 5%;
-            max-width: 1300px;
+            padding: 1.1rem 5%;
+            max-width: 1100px; /* Îngustat pentru un look mai compact */
             margin: auto;
         }
 
         .logo {
             font-family: var(--font-headings);
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             font-weight: 700;
             color: var(--text-light);
             text-decoration: none;
@@ -82,7 +81,7 @@ Iată codul complet configurat special pentru structura de directoare de pe GitH
         .nav-links {
             list-style: none;
             display: flex;
-            gap: 2.5rem;
+            gap: 2rem;
             align-items: center;
         }
 
@@ -119,11 +118,11 @@ Iată codul complet configurat special pentru structura de directoare de pe GitH
         .btn-rezerva {
             background-color: var(--text-light);
             color: var(--primary-color);
-            padding: 0.75rem 1.8rem;
+            padding: 0.65rem 1.5rem;
             border-radius: 50px;
             text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
+            font-weight: 700;
+            font-size: 0.85rem;
             letter-spacing: 1px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
             transition: var(--transition-smooth);
@@ -136,40 +135,41 @@ Iată codul complet configurat special pentru structura de directoare de pe GitH
             box-shadow: 0 6px 20px rgba(197, 168, 128, 0.3);
         }
 
-        /* Hero Section */
+        /* Hero Section (Copertă cu imaginea title.jpg de lângă index.html) */
         #hero {
             height: 100vh;
-            background: linear-gradient(rgba(44, 53, 71, 0.3), rgba(44, 53, 71, 0.55)), 
-                        url('site/poze%20filler/A%20Tour%20of%20the%20Foresta%20Vineyard.jpg') center/cover no-repeat;
+            background: linear-gradient(rgba(44, 53, 71, 0.25), rgba(44, 53, 71, 0.55)), 
+                        url('title.jpg') center/cover no-repeat;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
             color: var(--text-light);
-            padding: 0 20px;
+            padding: 0 24px;
             position: relative;
             overflow: hidden;
         }
 
         #hero h1 {
             font-family: var(--font-headings);
-            font-size: 5rem;
+            font-size: 4.2rem;
             font-weight: 400;
             margin-bottom: 1rem;
-            letter-spacing: 1px;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            letter-spacing: 1.5px;
+            text-shadow: 0 2px 15px rgba(0,0,0,0.3);
             animation: fadeIn 1.5s ease;
+            max-width: 800px;
         }
 
         #hero p {
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             font-weight: 300;
             margin-bottom: 2.5rem;
-            letter-spacing: 4px;
+            letter-spacing: 6px;
             text-transform: uppercase;
             color: rgba(255, 255, 255, 0.95);
-            text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            text-shadow: 0 2px 10px rgba(0,0,0,0.4);
             animation: fadeIn 2s ease;
         }
 
@@ -180,63 +180,69 @@ Iată codul complet configurat special pentru structura de directoare de pe GitH
 
         /* Sections General */
         section {
-            padding: 9rem 5%;
-            max-width: 1300px;
+            padding: 7rem 24px;
+            max-width: 1100px;  /* Îngustat pentru densitate vizuală mai bună */
             margin: auto;
         }
 
         .section-title {
             text-align: center;
             font-family: var(--font-headings);
-            font-size: 3.2rem;
+            font-size: 2.8rem;
             font-weight: 400;
             color: var(--primary-deep);
-            margin-bottom: 0.8rem;
+            margin-bottom: 1rem;
         }
 
         .section-subtitle {
             text-align: center;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             text-transform: uppercase;
-            letter-spacing: 3px;
+            letter-spacing: 4px;
             color: var(--accent-color);
-            margin-bottom: 4.5rem;
-            font-weight: 600;
+            margin-bottom: 4rem;
+            font-weight: 700;
         }
 
         /* Despre Noi / Concept */
         .about-grid {
             display: grid;
             grid-template-columns: 1.05fr 0.95fr;
-            gap: 6rem;
+            gap: 4rem;
             align-items: center;
         }
 
         .about-text h3 {
             font-family: var(--font-headings);
-            font-size: 2.4rem;
+            font-size: 2.1rem;
             font-weight: 400;
-            margin-bottom: 1.8rem;
+            margin-bottom: 1.5rem;
             color: var(--primary-deep);
+            line-height: 1.3;
         }
 
         .about-text p {
-            margin-bottom: 2rem;
-            font-size: 1.05rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.02rem;
             color: var(--text-muted);
         }
 
         .highlight-box {
             border-left: 3px solid var(--primary-color);
-            padding-left: 1.8rem;
+            padding-left: 1.5rem;
             margin-bottom: 2rem;
         }
 
         .highlight-box h4 {
             font-family: var(--font-headings);
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             color: var(--primary-deep);
-            margin-bottom: 0.6rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .highlight-box p {
+            font-size: 0.98rem;
+            margin-bottom: 0;
         }
 
         .about-image {
@@ -245,9 +251,9 @@ Iată codul complet configurat special pentru structura de directoare de pe GitH
 
         .about-image img {
             width: 100%;
-            height: 550px;
+            height: 480px;
             border-radius: 12px;
-            box-shadow: 0 30px 60px rgba(44, 53, 71, 0.1);
+            box-shadow: 0 30px 60px rgba(44, 53, 71, 0.08);
             object-fit: cover;
             display: block;
         }
@@ -255,10 +261,10 @@ Iată codul complet configurat special pentru structura de directoare de pe GitH
         .about-image::before {
             content: '';
             position: absolute;
-            top: -20px;
-            left: -20px;
-            width: 120px;
-            height: 120px;
+            top: -12px;
+            left: -12px;
+            width: 80px;
+            height: 80px;
             border-top: 4px solid var(--primary-color);
             border-left: 4px solid var(--primary-color);
             z-index: -1;
@@ -269,24 +275,27 @@ Iată codul complet configurat special pentru structura de directoare de pe GitH
         #atmosfera {
             background-color: var(--bg-section);
             max-width: 100%;
+            padding-left: 0;
+            padding-right: 0;
         }
 
         .gallery-container {
-            max-width: 1300px;
+            max-width: 1100px;
             margin: auto;
+            padding: 0 24px;
         }
 
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
+            gap: 1.5rem;
         }
 
         .gallery-item {
             position: relative;
             border-radius: 12px;
             overflow: hidden;
-            height: 450px;
+            height: 380px;
             box-shadow: 0 15px 35px rgba(0,0,0,0.04);
             background-color: var(--primary-deep);
         }
@@ -306,12 +315,12 @@ Iată codul complet configurat special pentru structura de directoare de pe GitH
         .gallery-overlay {
             position: absolute;
             inset: 0;
-            background: linear-gradient(to top, rgba(44, 53, 71, 0.85), rgba(44, 53, 71, 0.1));
+            background: linear-gradient(to top, rgba(44, 53, 71, 0.9), rgba(44, 53, 71, 0.15));
             opacity: 0;
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
-            padding: 2.5rem;
+            padding: 1.8rem;
             transition: var(--transition-smooth);
         }
 
@@ -321,21 +330,22 @@ Iată codul complet configurat special pentru structura de directoare de pe GitH
 
         .gallery-overlay h4 {
             font-family: var(--font-headings);
-            font-size: 1.6rem;
+            font-size: 1.4rem;
             color: var(--text-light);
-            margin-bottom: 0.6rem;
+            margin-bottom: 0.5rem;
         }
 
         .gallery-overlay p {
-            font-size: 0.95rem;
-            color: rgba(255, 255, 255, 0.85);
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.5;
         }
 
         /* Experiente */
         .cards {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 2.5rem;
+            gap: 1.8rem;
         }
 
         .card {
@@ -343,18 +353,18 @@ Iată codul complet configurat special pentru structura de directoare de pe GitH
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 15px 35px rgba(0,0,0,0.02);
-            border: 1px solid rgba(136, 151, 189, 0.12);
+            border: 1px solid rgba(136, 151, 189, 0.1);
             transition: var(--transition-smooth);
         }
 
         .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 25px 50px rgba(136, 151, 189, 0.15);
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(136, 151, 189, 0.12);
         }
 
         .card-img-wrapper {
             position: relative;
-            height: 280px;
+            height: 240px;
             overflow: hidden;
         }
 
@@ -370,26 +380,26 @@ Iată codul complet configurat special pentru structura de directoare de pe GitH
         }
 
         .card-content {
-            padding: 2.5rem;
+            padding: 1.8rem;
         }
 
         .card-content h4 {
             font-family: var(--font-headings);
-            font-size: 1.7rem;
+            font-size: 1.45rem;
             font-weight: 400;
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
             color: var(--primary-deep);
         }
 
         .card-content p {
             color: var(--text-muted);
-            font-size: 0.98rem;
-            margin-bottom: 2rem;
-            line-height: 1.7;
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
         }
 
         .card-link {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 700;
             letter-spacing: 1px;
             text-transform: uppercase;
@@ -413,11 +423,14 @@ Iată codul complet configurat special pentru structura de directoare de pe GitH
             color: var(--text-light);
             text-align: center;
             position: relative;
+            padding-left: 0;
+            padding-right: 0;
         }
 
         .contact-container {
-            max-width: 900px;
+            max-width: 800px;
             margin: auto;
+            padding: 0 24px;
         }
 
         #contact .section-title {
@@ -433,21 +446,21 @@ Iată codul complet configurat special pentru structura de directoare de pe GitH
             justify-content: space-around;
             gap: 2rem;
             flex-wrap: wrap;
-            margin: 4.5rem 0;
+            margin: 3.5rem 0;
         }
 
         .contact-item {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 1rem;
+            gap: 0.8rem;
             flex: 1;
             min-width: 200px;
         }
 
         .contact-item svg {
-            width: 36px;
-            height: 36px;
+            width: 32px;
+            height: 32px;
             stroke: var(--accent-color);
             stroke-width: 1.5;
             fill: none;
@@ -456,7 +469,7 @@ Iată codul complet configurat special pentru structura de directoare de pe GitH
         .contact-item a, .contact-item span {
             color: rgba(255, 255, 255, 0.9);
             text-decoration: none;
-            font-size: 1.15rem;
+            font-size: 1.05rem;
             font-weight: 500;
             transition: var(--transition-smooth);
         }
@@ -469,10 +482,10 @@ Iată codul complet configurat special pentru structura de directoare de pe GitH
             display: inline-block;
             background-color: var(--accent-color);
             color: var(--text-light);
-            padding: 1.1rem 3rem;
+            padding: 1rem 2.8rem;
             border-radius: 50px;
             font-weight: 600;
-            font-size: 1rem;
+            font-size: 0.95rem;
             letter-spacing: 1px;
             text-decoration: none;
             box-shadow: 0 4px 20px rgba(0,0,0,0.15);
@@ -489,18 +502,18 @@ Iată codul complet configurat special pentru structura de directoare de pe GitH
         /* Footer */
         footer {
             text-align: center;
-            padding: 4rem;
+            padding: 4rem 2rem;
             background-color: #1A202C;
             color: rgba(255, 255, 255, 0.4);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             border-top: 1px solid rgba(255,255,255,0.03);
         }
 
-        /* Responsive Design */
+        /* Responsive Design (Optimizat pentru Mobil și Layout Strâns) */
         @media (max-width: 1024px) {
             .about-grid {
                 grid-template-columns: 1fr;
-                gap: 4rem;
+                gap: 3rem;
             }
             .about-image img {
                 height: 400px;
@@ -515,33 +528,74 @@ Iată codul complet configurat special pentru structura de directoare de pe GitH
 
         @media (max-width: 768px) {
             nav {
-                padding: 1rem 5%;
+                padding: 1rem 1.5rem;
+            }
+            .logo {
+                font-size: 1.3rem;
             }
             .nav-links {
                 display: none; /* Ascuns pe mobil */
             }
+            .btn-rezerva {
+                padding: 0.55rem 1.2rem;
+                font-size: 0.8rem;
+            }
+            #hero {
+                padding: 0 20px;
+            }
             #hero h1 {
-                font-size: 3.2rem;
+                font-size: 2.8rem;
             }
             #hero p {
-                font-size: 1.1rem;
-                letter-spacing: 2px;
+                font-size: 0.95rem;
+                letter-spacing: 3px;
+                margin-bottom: 2rem;
             }
             section {
-                padding: 6rem 5%;
+                padding: 4.5rem 1.25rem;
             }
             .section-title {
-                font-size: 2.5rem;
+                font-size: 2.2rem;
+            }
+            .section-subtitle {
+                margin-bottom: 2.5rem;
+                letter-spacing: 2px;
+                font-size: 0.8rem;
+            }
+            .about-text h3 {
+                font-size: 1.8rem;
+            }
+            .about-image img {
+                height: 300px;
             }
             .gallery-grid {
                 grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+            .gallery-item {
+                height: 320px;
             }
             .cards {
                 grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            .card-img-wrapper {
+                height: 200px;
             }
             .contact-details {
                 flex-direction: column;
-                gap: 3rem;
+                gap: 2rem;
+                margin: 2.5rem 0;
+            }
+            .contact-item {
+                min-width: unset;
+            }
+            .contact-item a, .contact-item span {
+                font-size: 0.95rem;
+            }
+            .contact-cta {
+                width: 100%;
+                padding: 1rem 1.5rem;
             }
         }
     </style>
@@ -557,15 +611,15 @@ Iată codul complet configurat special pentru structura de directoare de pe GitH
                 <li><a href="#experiente">Experiențe</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <a href="#contact" class="btn-rezerva">REZERVĂ ACUM</a>
+            <a href="#contact" class="btn-rezerva">REZERVĂ</a>
         </nav>
     </header>
 
-    <!-- Secțiunea Hero (Copertă cu A Tour of the Foresta Vineyard) -->
+    <!-- Secțiunea Hero (Copertă cu title.jpg ca fundal principal) -->
     <section id="hero">
         <h1>Refugiul dintre Vii</h1>
         <p>O reconectare cu natura</p>
-        <a href="#contact" class="btn-rezerva" style="padding: 1.1rem 3rem; font-size: 1rem; background-color: var(--accent-color); color: white;">PLANIFICĂ EVADAREA</a>
+        <a href="#contact" class="btn-rezerva" style="padding: 1rem 2.5rem; font-size: 0.95rem; background-color: var(--accent-color); color: white;">PLANIFICĂ EVADAREA</a>
     </section>
 
     <!-- Secțiunea Concept (Cu download.jpg) -->
@@ -615,7 +669,7 @@ Iată codul complet configurat special pentru structura de directoare de pe GitH
                     <img src="site/poze%20filler/download%20(4).jpg" alt="Oameni ciocnind pahare de vin roșu la masă">
                     <div class="gallery-overlay">
                         <h4>Bucuria de a fi Împreună</h4>
-                        <p>Zâmbete, povești spuse pe îndelete și arome de neuitat.</p>
+                        <p>Zâmbete, povești spuse pe îndelete și arome de neuitat în bune companie.</p>
                     </div>
                 </div>
 
@@ -681,7 +735,7 @@ Iată codul complet configurat special pentru structura de directoare de pe GitH
             <h2 class="section-title">Planifică-ți Vizita</h2>
             <p class="section-subtitle">Suntem bucuroși să te ghidăm</p>
 
-            <p style="font-size: 1.15rem; color: rgba(255, 255, 255, 0.85); margin-bottom: 3.5rem; font-weight: 300; line-height: 1.8;">
+            <p style="font-size: 1.1rem; color: rgba(255, 255, 255, 0.85); margin-bottom: 2.5rem; font-weight: 300; line-height: 1.7;">
                 Porțile refugiului nostru sunt mereu deschise pentru iubitorii de frumos, tihnă și poveste. Rezervă-ți locul în avans pentru a te asigura că vei experimenta magia pe deplin.
             </p>
 
@@ -707,7 +761,7 @@ Iată codul complet configurat special pentru structura de directoare de pe GitH
     <!-- Footer -->
     <footer>
         <p>&copy; 2026 Refugiul dintre Vii. Toate drepturile rezervate.</p>
-        <p style="font-size: 0.8rem; margin-top: 0.6rem; color: rgba(255, 255, 255, 0.25);">Creat cu grijă pentru pasionații de liniște și vin premium.</p>
+        <p style="font-size: 0.8rem; margin-top: 0.5rem; color: rgba(255, 255, 255, 0.25);">Creat cu grijă pentru pasionații de liniște și vin premium.</p>
     </footer>
 
 </body>
